@@ -51,7 +51,7 @@ export async function load({ fetch, params, url }) {
     const page = url.searchParams.get('page');
         let pageNumber = "";
         if (page) {
-            pageNumber = &page=${page};
+            pageNumber = `&page=${page}`;
 
             if (isNaN(page)) {
                 throw error(400, {
