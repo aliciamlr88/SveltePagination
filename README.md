@@ -2,6 +2,24 @@
 
 A simple pagination component for SvelteKit projects.
 
+### Examples
+
+#### Black Color Pagination
+
+![alt text](https://github.com/aliciamlr88/SveltePagination/blob/main/static/pagination-black.jpeg?raw=true)
+
+#### Orange Color Pagination
+
+![alt text](https://github.com/aliciamlr88/SveltePagination/blob/main/static/pagination-orange.jpeg?raw=true)
+
+#### Purple Color Pagination
+
+![alt text](https://github.com/aliciamlr88/SveltePagination/blob/main/static/pagination-purple.jpeg?raw=true)
+
+#### Red Color Pagination
+
+![alt text](https://github.com/aliciamlr88/SveltePagination/blob/main/static/pagination-red.jpeg?raw=true)
+
 ## Installation
 
 ```
