@@ -1,6 +1,11 @@
 {
-	"name": "sveltepagination",
+	"name": "sveltebspagination",
 	"version": "0.0.1",
+	"license": "MIT",
+	"author":{
+		"name": "Alicia & Tony"
+	},
+	"repository": "https://github.com/aliciamlr88/SveltePagination",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && npm run package",
@@ -43,5 +48,9 @@
 	},
 	"svelte": "./dist/index.js",
 	"types": "./dist/index.d.ts",
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"bootstrap": "^5.3.3",
+		"@sveltejs/kit" : "^2.0.0"
+	}
 }
