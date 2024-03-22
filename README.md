@@ -1,58 +1,76 @@
-# create-svelte
+# sveltebspagination
 
-Everything you need to build a Svelte library, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+A simple pagination component for SvelteKit projects.
 
-Read more about creating a library [in the docs](https://kit.svelte.dev/docs/packaging).
+## Installation
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
+```
+npm i sveltebspagination
 ```
 
-## Developing
+## Usage
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+In +page.svelte add the following code wherever you want to put the paginator
 
-```bash
-npm run dev
+```
+<script>
+    import { Pagination } from 'sveltebspagination';
+</script>
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+<div class="row justify-content-center">
+	<div class="col-sm-12 col-md-4">
+		<Pagination {totalPages} />
+	</div>
+</div>
 ```
 
-Everything inside `src/lib` is part of your library, everything inside `src/routes` can be used as a showcase or preview app.
+In +page.js or +page.server.js add the following code replace `{your_total_pages}` with an integer for the total amount of pages you want to paginate.
 
-## Building
+```
+import { error } from '@sveltejs/kit';
+export async function load({ fetch, params, url }) {
 
-To build your library:
+    const page = url.searchParams.get('page');
+        let pageNumber = "";
+        if (page) {
+            pageNumber = &page=${page};
 
-```bash
-npm run package
+            if (isNaN(page)) {
+                throw error(400, {
+                    message: "Page Number must be a number"
+                })
+            }
+
+            if (page > 500) {
+                throw error(400, {
+                    message: "No pages bigger than 500"
+                })
+            }
+        }
+
+        return
+        { totalPages: {your_total_pages} };
+}
 ```
 
-To create a production version of your showcase app:
+## Styles
 
-```bash
-npm run build
+Customize colors with these classes in global style or +page.svelte style.
+
+```
+<style>
+    .page-link {
+        color: #ff3e00;
+    }
+
+    .page-link.active {
+        background-color: #ff3e00;
+        border-color: #ff3e00;
+    }
+</style>
 ```
 
-You can preview the production build with `npm run preview`.
+## Authors
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
-
-## Publishing
-
-Go into the `package.json` and give your package the desired name through the `"name"` option. Also consider adding a `"license"` field and point it to a `LICENSE` file which you can create from a template (one popular option is the [MIT license](https://opensource.org/license/mit/)).
-
-To publish your library to [npm](https://www.npmjs.com):
-
-```bash
-npm publish
-```
+- [Alicia Medina La Rosa](https://github.com/aliciamlr88)
+- [Tony Lee](https://github.com/t2ny)
