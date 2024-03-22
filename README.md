@@ -33,6 +33,8 @@ In +page.svelte add the following code wherever you want to put the paginator
 ```
 <script>
     import { Pagination } from 'sveltebspagination';
+    export let data;
+    $: ({ totalPages } = data);
 </script>
 
 <div class="row justify-content-center">
@@ -48,26 +50,20 @@ In +page.js or +page.server.js add the following code replace `{your_total_pages
 import { error } from '@sveltejs/kit';
 export async function load({ fetch, params, url }) {
 
-    const page = url.searchParams.get('page');
-        let pageNumber = "";
-        if (page) {
-            pageNumber = `&page=${page}`;
+    let page = url.searchParams.get('page');
 
-            if (isNaN(page)) {
-                throw error(400, {
-                    message: "Page Number must be a number"
-                })
-            }
+    if(!page){
+        page = 1;
+    }
 
-            if (page > 500) {
-                throw error(400, {
-                    message: "No pages bigger than 500"
-                })
-            }
-        }
+    if (isNaN(page) || page <= 0) {
+        throw error(400, {
+            message: "Page Number must be a number bigger than 0"
+        })
+    }
 
-        return
-        { totalPages: {your_total_pages} };
+    return
+       { totalPages: {your_total_pages} };
 }
 ```
 
