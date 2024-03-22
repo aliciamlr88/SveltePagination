@@ -1,8 +1,8 @@
 {
 	"name": "sveltebspagination",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"license": "MIT",
-	"author":{
+	"author": {
 		"name": "Alicia & Tony"
 	},
 	"repository": "https://github.com/aliciamlr88/SveltePagination",
@@ -51,6 +51,6 @@
 	"type": "module",
 	"dependencies": {
 		"bootstrap": "^5.3.3",
-		"@sveltejs/kit" : "^2.0.0"
+		"@sveltejs/kit": "^2.0.0"
 	}
 }
