@@ -1,11 +1,19 @@
 {
 	"name": "sveltebspagination",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"license": "MIT",
 	"author": {
 		"name": "Alicia & Tony"
 	},
 	"repository": "https://github.com/aliciamlr88/SveltePagination",
+	"keywords": [
+		"pagination",
+		"bootstrap5",
+		"bootstrap",
+		"svelte",
+		"sveltekit",
+		"page"
+	],
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && npm run package",
